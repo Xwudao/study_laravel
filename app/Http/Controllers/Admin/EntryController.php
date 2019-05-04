@@ -18,7 +18,7 @@ class EntryController extends Controller
      */
     public function index()
     {
-        return '欢迎来到管理员首页';
+        return view('admin.entry.index');
     }
     /**
      * 登录视图
@@ -26,6 +26,14 @@ class EntryController extends Controller
     public function loginForm()
     {
         return view('admin.entry.login');
+    }
+    /**
+     * 退出
+     */
+    public function logout()
+    {
+        Auth::guard('admin')->logout();
+        return redirect('admin/login');
     }
     /**
      * 登录处理
